@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suchwidget</title>
+    <!-- Externes Script einbinden -->
+    <script async type="text/javascript" src="https://www.optimale-praesentation.de/frontend/js/bin/boot?secratoid=YOUR_ID"></script>
 </head>
 <body>
+    <!-- Such-Widget Platzhalter -->
     <div id="op_content_box">
         <script type="text/javascript">
             var loadOptions = {
@@ -19,4 +22,17 @@
 
             var secra_op_client;
             if (secra_op_client && secra_op_client.loadModule) {
-                secra_op_client.loadModule(loadOptions['module'], loadOptions['content_id'], load
+                secra_op_client.loadModule(loadOptions['module'], loadOptions['content_id'], loadOptions['options']);
+            } else {
+                if (!secra_op_client) { secra_op_client = {}; }
+                secra_op_client.loadQueue = [];
+                secra_op_client.loadQueue.push({
+                    module: loadOptions['module'],
+                    embed_id: loadOptions['content_id'],
+                    options: loadOptions['options']
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>

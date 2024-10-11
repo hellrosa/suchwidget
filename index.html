@@ -1,7 +1,4 @@
-# Create an HTML file with the complete code for widget integration
 
-# HTML content for the widget integration
-html_content = """
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -19,7 +16,7 @@ html_content = """
                 content_id: 'op_content_box',
                 options: {
                     redirectTarget: '/die-suche.php',
-                    layout: 2  // Layout 2 festlegen
+                    layout: 2  // Layout 2 für das Widget festlegen
                 }
             };
 
@@ -39,12 +36,3 @@ html_content = """
     </div>
 </body>
 </html>
-"""
-
-# Save the HTML content to a file
-file_path = "/mnt/data/suchwidget_integration.html"
-with open(file_path, "w") as file:
-    file.write(html_content)
-
-# Return the file path for download
-file_path

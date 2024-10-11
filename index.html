@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suchwidget Integration</title>
+    <!-- JavaScript für das Widget einbinden -->
+    <script async type="text/javascript" src="https://www.optimale-praesentation.de/frontend/js/bin/boot?secratoid=YOUR_ID"></script>
+</head>
+<body>
+    <div id="op_content_box">
+        <script type="text/javascript">
+            var loadOptions = {
+                module: 'op-frontend-searchwidget',
+                content_id: 'op_content_box',
+                options: {
+                    redirectTarget: '/die-suche.php',
+                    layout: 2  // Layout 2 festlegen
+                }
+            };
+
+            var secra_op_client;
+            if (secra_op_client && secra_op_client.loadModule) {
+                secra_op_client.loadModule(loadOptions['module'], loadOptions['content_id'], loadOptions['options']);
+            } else {
+                if (!secra_op_client) { secra_op_client = {}; }
+                secra_op_client.loadQueue = [];
+                secra_op_client.loadQueue.push({
+                    module: loadOptions['module'],
+                    embed_id: loadOptions['content_id'],
+                    options: loadOptions['options']
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>
